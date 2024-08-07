@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+.container {
+  margin: auto 6%;
+}
+
+.content {
+  margin-top: 100px;
+}
+
+.title-header {
+  background-image: url(../img/background.png);
+  background-attachment: fixed;
+  background-position-y: 80px;
+  background-position-x: 50%;
+  background-size: cover;
+  height: 200px;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2em;
+  padding: 30px;
+}
+
+.mt-content {
+  margin-top: 30px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.devider {
+  border: 1px solid rgb(219, 219, 219);
+  margin: 20px 0;
+}
+
+.no-wrap {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* CSS rules for extra small devices */
+  .flex {
+    display: block;
+  }
+
+  .half {
+    width: 100% !important;
+  }
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* CSS rules for small devices */
+  .flex {
+    display: block;
+  }
+
+  .half {
+    width: 75% !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* CSS rules for medium devices */
+}

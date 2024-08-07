@@ -1,0 +1,119 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  z-index: 999;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .nav-link {
+  color: #1a237e;
+  text-decoration: none;
+  border: 2px solid #1a237e;
+  border-radius: 20em;
+  padding: 10px 25px;
+  transition: 0.2s;
+  text-wrap: nowrap;
+}
+
+.navbar .nav-link:hover {
+  color: white;
+  background-color: #1a237e;
+  text-decoration: none;
+}
+
+.navbar .nav-link.active {
+  color: white;
+  background-color: #1a237e;
+  text-decoration: none;
+}
+
+.navbar .items {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.navbar .items .img img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.navbar .items .img {
+  display: flex;
+}
+
+.navbar .links {
+  display: flex;
+  justify-items: center;
+  gap: 7px;
+  transition: 0.4s;
+}
+
+#toggleLinks:hover {
+  cursor: pointer;
+}
+
+#toggleLinks {
+  background-color: transparent;
+  color: #1a237e;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  margin-right: 30px;
+
+  display: none;
+}
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 767.98px) {
+  /* CSS rules for small devices */
+
+  .navbar .links.mobile-hidden {
+    top: -10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #toggleLinks {
+    display: block;
+  }
+
+  .navbar .nav-link {
+    display: block;
+    margin: 10px;
+    border-radius: 20em;
+    padding: 10px 25px;
+    transition: 0.2s;
+    text-wrap: nowrap;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  .navbar .links {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    /* border-radius: 10px; */
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* CSS rules for medium devices */
+}
