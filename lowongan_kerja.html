@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      type="text/javascript"
+      src="https://codesandbox.io/public/sse-hooks/sse-hooks.e15ace8ccace5398a721ffec81f121de.js"></script>
+    <script
+      type="text/javascript"
+      src="https://codesandbox.io/static/js/banner.d9cb10a38.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lowongan Kerja</title>
+    <!-- <link rel="stylesheet" href="/css/navbar.css" /> -->
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/loker.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+      /* Additional CSS for modal and other styles */
+      .lowja-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+      .lowja-modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      .lowja-close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .lowja-close:hover,
+      .lowja-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .lowja-show-more {
+        text-align: center;
+        margin-top: 20px;
+      }
+      #scrollUpBtn {
+        display: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="items">
+            <div class="img">
+              <a href="index.html">
+                <img src="img/polnep.png" alt="" />
+                <img src="img/elektro.png" alt="" />
+              </a>
+            </div>
+            <div class="links mobile-hidden">
+              <a href="profile.html" class="nav-link">Profil</a>
+              <a href="event.html" class="nav-link">Acara</a>
+              <a href="berita.html" class="nav-link">Berita</a>
+              <a href="lowongan_kerja.html" class="nav-link active"
+                >Lowongan Kerja</a
+              >
+              <a href="about.html" class="nav-link">Tentang Kami</a>
+            </div>
+          </div>
+
+          <div class="left">
+            <button id="toggleLinks">&#9776;</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="title-header">
+        <h1>Lowongan Kerja</h1>
+      </div>
+
+      <div class="lowja-job-search">
+        <input
+          type="text"
+          id="searchInput"
+          onkeyup="searchJobs()"
+          placeholder="Search for jobs..." />
+      </div>
+
+      <div class="lowja-category-buttons">
+        <button class="lowja-btn active" onclick="filterJobs('all')">
+          All
+        </button>
+        <button class="lowja-btn" onclick="filterJobs('Design')">Design</button>
+        <button class="lowja-btn" onclick="filterJobs('Development')">
+          Development
+        </button>
+        <button class="lowja-btn" onclick="filterJobs('Marketing')">
+          Marketing
+        </button>
+        <button class="lowja-btn" onclick="filterJobs('Network')">
+          Network
+        </button>
+        <button class="lowja-btn" onclick="filterJobs('IT')">IT</button>
+      </div>
+
+      <div class="lowja-job-container" id="jobContainer">
+        <!-- Job Cards with Real Data -->
+        <div
+          class="lowja-job-card"
+          data-category="IT"
+          data-url="https://www.jobstreet.co.id/en/job/uiux-designer-12345678">
+          <div class="job-title-container">
+            <h3>IT Engineer</h3>
+            <img src="/img/company1.jpg" alt="" class="company-logo" />
+          </div>
+          <p>IT Engineer - Jawa Barat</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> Cikarang Barat, Jawa Barat
+          </p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-paint-brush"></i>
+            <i class="fas fa-user-cog"></i>
+            <i class="fas fa-comments"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('IT Engineer', 'IT Engineer - Jawa Barat', 'Full Time', ['Bachelor’s or Master’s degree in Computer Science or related fields (fresh graduates are welcome to apply).', 'Good performance may lead to an opportunity for full-time employment after graduation.', 'Familiarity with computer networks, servers, and both Windows and Linux operating systems.','Understanding of routing and switching.','Responsible with a strong learning ability, positive attitude, and good teamwork spirit.','Will be placed in Cikarang and/or Karawang.'], 'https://id.jobstreet.com/id/job/77900516?ref=search-standalone&type=standout&origin=showNewTab#sol=53c7d850dd9df230bfe2454e4bfa27a76492f365')">
+            Apply
+          </button>
+        </div>
+
+        <div
+          class="lowja-job-card"
+          data-category="Engineering"
+          data-url="https://www.jobstreet.co.id/en/job/software-engineer-23456789">
+          <div class="job-title-container">
+            <h3>Software Engineer</h3>
+            <img src="/img/company3.jpg" alt="" class="company-logo" />
+          </div>
+          <p>Engineering - Jakarta Selatan, Jakarta Raya</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> Jakarta Selatan, Jakarta Raya
+          </p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-database"></i>
+            <i class="fas fa-cloud"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('Software Engineer', 'Engineering - Jakarta Selatan, Jakarta Raya', 'Full Time', ['Experience in JavaScript', 'Knowledge of SQL', 'Familiarity with cloud services'], 
+                'https://id.jobstreet.com/id/software-jobs/in-Indonesia?jobId=77925623&type=standout')">
+            Apply
+          </button>
+        </div>
+
+        <div
+          class="lowja-job-card"
+          data-category="Marketing"
+          data-url="https://www.jobstreet.co.id/en/job/digital-marketing-specialist-34567890">
+          <div class="job-title-container">
+            <h3>Digital Marketing</h3>
+            <img src="/img/company2.jpg" alt="" class="company-logo" />
+          </div>
+          <p>Marketing - Tangerang, Banten</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> Tangerang, Banten
+          </p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-bullhorn"></i>
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('Digital Marketing ', 'Marketing - Tangerang, Banten', 'Full Time', ['Memiliki latar belakang pendidikan atau pengalaman di bidang Marketing/branding (fresh graduate welcome)Experience in SEO', 'Terbiasa menggunakan FB Ads, Google Ads , Tiktok Ads', 'Memahami Social Media Marketing (SMM) termasuk community development, influencer dan managemen iklan berbayar','Memasang berbagai iklan ke media sosial juga platform lain,misalkan Goggle , Instagaram, Facebook, Youtube, Twitter dan lainnya','Merencanakan serta melaksanakan berbagai pengembangan seluruh web yang berkaitan dengan perusahaan, email, SEO atau SEM, iklan online juga media sosial'], 'https://id.jobstreet.com/job/77926130?ref=search-standalone&type=standout&origin=showNewTab#sol=19807f917f2399a10e65f0a4c75524bccc407922')">
+            Apply
+          </button>
+        </div>
+
+        <div
+          class="lowja-job-card"
+          data-category="IT"
+          data-url="https://www.jobstreet.co.id/id/job/system-analyst-23456789">
+          <div class="job-title-container">
+            <h3>System Analyst</h3>
+            <img src="/img/company4.png" alt="" class="company-logo" />
+          </div>
+          <p>Cilandak, Jakarta Raya</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Bandung</p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-cogs"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('System Analyst', 'Cilandak, Jakarta Raya', 'Full Time', ['Experience with system analysis', 'Proficient in UML', 'Strong communication skills'], 'https://www.jobstreet.co.id/id/job/system-analyst-23456789')">
+            Apply
+          </button>
+        </div>
+
+        <div class="lowja-job-card" data-category="Design">
+          <div class="job-title-container">
+            <h3>UI/UX Designer</h3>
+            <img src="/img/company5.jpg" alt="" class="company-logo" />
+          </div>
+          <p>Design - Jakarta Timur, Jakarta Raya</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> Jakarta Timur, Jakarta Raya
+          </p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-pencil-alt"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('UI/UX Designer', 'Design -Jakarta Timur, Jakarta Raya', 'Full Time', ['Bachelor’s or Master’s degree in Computer Science, Engineering, or other related fields.', 'Passionate about people, design, and innovation.', 'Able to adapt in a fast-paced working environment.', 'Capable of articulating ideas, presenting data, and driving solutions.', 'Strong analytical skills.'], 'https://id.jobstreet.com/id/jobs/in-Indonesia?jobId=77815080&keywords=ui%2Fux&type=standout')">
+            Apply
+          </button>
+        </div>
+
+        <div class="lowja-job-card" data-category="Development">
+          <div class="job-title-container">
+            <h3>Frontend Developer</h3>
+            <img src="/img/company6.jpg" alt="" class="company-logo" />
+          </div>
+          <p>Development -akarta Pusat, Jakarta Raya</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> akarta Pusat, Jakarta Raya
+          </p>
+          <span class="job-type">Contract</span>
+          <div class="icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('Frontend Developer', 'Development - Jakarta Pusat, Jakarta Raya', 'Contract', ['Experience with HTML, CSS, JavaScript', 'Understanding of responsive design'], 'https://id.jobstreet.com/id/job/77903035?ref=search-standalone&type=standout&origin=showNewTab#sol=990b93031eb9ec892baea35c1e1c36eadb9a6481')">
+            Apply
+          </button>
+        </div>
+
+        <div class="lowja-job-card" data-category="Design">
+          <div class="job-title-container">
+            <h3>Graphic Designer</h3>
+            <img src="/img/company7.jpg" alt="" class="company-logo" />
+          </div>
+          <p>Design - Jakarta Raya</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> Jakarta Raya
+          </p>
+          <span class="job-type">Full Time</span>
+          <div class="icons">
+            <i class="fas fa-palette"></i>
+            <i class="fas fa-photo-video"></i>
+          </div>
+          <button
+            class="apply-btn"
+            onclick="openModal('Graphic Designer', 'Design - Bandung', 'Part Time', ['Proficient in Adobe Creative Suite', 'Strong portfolio of illustrations or other graphics'], 'https://id.jobstreet.com/id/job/77898731?ref=search-standalone&type=standout&origin=showNewTab#sol=220dab7c446a5f926882d7cda45b7d675554af3b')">
+            Apply
+          </button>
+        </div>
+      </div>
+
+      <div class="lowja-show-more">
+        <button
+          id="showMoreBtn"
+          class="lowja-btn-show"
+          onclick="toggleMoreJobs()">
+          Show More
+        </button>
+        <button id="scrollUpBtn" class="lowja-btn-show" onclick="scrollToTop()">
+          Scroll Up
+        </button>
+      </div>
+
+      <!-- Modal for job details -->
+      <div id="jobModal" class="lowja-modal">
+        <div class="lowja-modal-content">
+          <span class="lowja-close" onclick="closeModal()">&times;</span>
+          <h2 id="modalJobTitle"></h2>
+          <p id="modalJobLocation"></p>
+          <span id="modalJobType"></span>
+          <ul id="modalJobDetails"></ul>
+          <a id="modalApplyLink" href="#" target="_blank" class="apply-btn"
+            >Apply on JobStreet</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="flex justify-between">
+          <div class="center">
+            <h1>POLNEP</h1>
+            <!-- <span class="p-2"></span> -->
+            <img src="img/polnep.png" alt="" width="80" />
+          </div>
+          <div class="center">
+            <p>Connect With Us</p>
+            <br />
+            <br />
+            <div class="flex" style="gap: 2px">
+              <a href="#">
+                <img src="img/icons/fb.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/ig.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/x.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/linkedin.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/yt.png" width="40" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script>
+      function openModal(title, location, type, details, url) {
+        document.getElementById('modalJobTitle').textContent = title;
+        document.getElementById('modalJobLocation').textContent = location;
+        document.getElementById('modalJobType').textContent = type;
+
+        const detailsList = document.getElementById('modalJobDetails');
+        detailsList.innerHTML = ''; // Clear existing details
+        details.forEach((detail) => {
+          const li = document.createElement('li');
+          li.textContent = detail;
+          detailsList.appendChild(li);
+        });
+
+        document.getElementById('modalApplyLink').href = url;
+        document.getElementById('jobModal').style.display = 'block';
+      }
+
+      function closeModal() {
+        document.getElementById('jobModal').style.display = 'none';
+      }
+
+      function filterJobs(category) {
+        const jobs = document.querySelectorAll('.lowja-job-card');
+        const buttons = document.querySelectorAll('.lowja-btn');
+        buttons.forEach((btn) => btn.classList.remove('active'));
+
+        // Highlight the selected category button
+        if (category) {
+          const activeBtn = Array.from(buttons).find(
+            (btn) => btn.textContent.toLowerCase() === category.toLowerCase()
+          );
+          if (activeBtn) activeBtn.classList.add('active');
+        }
+
+        let visibleCount = 0;
+
+        jobs.forEach((job) => {
+          const jobCategory = job.getAttribute('data-category');
+
+          if (category === 'all' || category === jobCategory) {
+            job.style.display = visibleCount < 4 ? 'block' : 'none';
+            visibleCount++;
+          } else {
+            job.style.display = 'none';
+          }
+        });
+
+        // Control the display of "Show More" button
+        const showMoreBtn = document.getElementById('showMoreBtn');
+
+        if (visibleCount > 4) {
+          showMoreBtn.style.display = 'block';
+        } else {
+          showMoreBtn.style.display = 'none';
+        }
+
+        // Hide "Scroll Up" button initially
+        const scrollUpBtn = document.getElementById('scrollUpBtn');
+        scrollUpBtn.style.display = 'none';
+      }
+
+      function searchJobs() {
+        const input = document
+          .getElementById('searchInput')
+          .value.toLowerCase();
+        const jobs = document.querySelectorAll('.lowja-job-card');
+        let visibleCount = 0;
+
+        jobs.forEach((job) => {
+          const jobTitle = job.querySelector('h3').textContent.toLowerCase();
+          const jobLocation = job
+            .querySelector('.location')
+            .textContent.toLowerCase();
+          const jobCategory = job.getAttribute('data-category').toLowerCase();
+
+          if (
+            jobTitle.includes(input) ||
+            jobLocation.includes(input) ||
+            jobCategory.includes(input)
+          ) {
+            job.style.display = visibleCount < 4 ? 'block' : 'none';
+            visibleCount++;
+          } else {
+            job.style.display = 'none';
+          }
+        });
+
+        // Control the display of "Show More" button
+        const showMoreBtn = document.getElementById('showMoreBtn');
+
+        if (visibleCount > 4) {
+          showMoreBtn.style.display = 'block';
+        } else {
+          showMoreBtn.style.display = 'none';
+        }
+
+        // Hide "Scroll Up" button initially
+        const scrollUpBtn = document.getElementById('scrollUpBtn');
+        scrollUpBtn.style.display = 'none';
+      }
+
+      function toggleMoreJobs() {
+        const jobs = document.querySelectorAll('.lowja-job-card');
+        let hiddenCount = 0;
+
+        jobs.forEach((job) => {
+          if (job.style.display === 'none') {
+            hiddenCount++;
+          }
+        });
+
+        if (hiddenCount > 0) {
+          jobs.forEach((job, index) => {
+            job.style.display = 'block';
+          });
+          document.getElementById('showMoreBtn').style.display = 'none';
+          document.getElementById('scrollUpBtn').style.display = 'block'; // Show "Scroll Up" button
+        }
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        filterJobs('all'); // Reset to show only the first 4 jobs
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        filterJobs('all'); // Initially filter to show all jobs
+      });
+    </script>
+  </body>
+</html>

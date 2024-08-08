@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/berita.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <style>
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        margin: 20px 0;
+        padding: 0 20px;
+      }
+
+      .image-item {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .image-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .image-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s ease;
+        opacity: 0;
+      }
+
+      .image-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .text {
+        color: white;
+        font-size: 14px;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="items">
+          <div class="img">
+            <a href="index.html">
+              <img src="img/polnep.png" alt="" />
+              <img src="img/elektro.png" alt="" />
+            </a>
+          </div>
+          <div class="links mobile-hidden">
+            <a href="profile.html" class="nav-link">Profil</a>
+            <a href="event.html" class="nav-link">Acara</a>
+            <a href="berita.html" class="nav-link active">Berita</a>
+            <a href="lowongan_kerja.html" class="nav-link">Lowongan Kerja</a>
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+          </div>
+        </div>
+
+        <div class="left">
+          <button id="toggleLinks">&#9776;</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="title-header">
+        <h1>Berita</h1>
+      </div>
+
+      <div class="container">
+        <!-- Article Section -->
+        <div class="article">
+          <img src="img/berita.jpg" alt="Article Image" />
+          <div class="article-content">
+            <h2>Pengumuman Hasil Seleksi</h2>
+            <p>Details about the announcement and the event.</p>
+            <p class="tags">#Pengumuman #Event</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="img/b1.png" alt="Article Image" />
+          <div class="article-content">
+            <h2>PERESMIAN GEDUNG KULIAH TERPADU POLNEP OLEH DIRJEN DIKSI</h2>
+            <p>Information</p>
+            <p class="tags">#Pengumuman #Event</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="img/b2.png" alt="Article Image" />
+          <div class="article-content">
+            <h2>
+              Studi: Perempuan Butuh 15 Tahun Lebih Lama dari Laki-laki untuk
+              Jadi Profesor
+            </h2>
+            <p>Information about the seminar and guest speakers.</p>
+            <p class="tags">#Pengumuman #Event</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="img/b3.png" alt="Article Image" />
+          <div class="article-content">
+            <h2>
+              Prodi Sistem Informasi Akuntansi: Prospek Kerja dan Pilihan
+              Kampusnya
+            </h2>
+            <p>Information about the seminar and guest speakers.</p>
+            <p class="tags">#Pengumuman #Event</p>
+          </div>
+        </div>
+
+        <div class="article">
+          <img src="img/b4.png" alt="Article Image" />
+          <div class="article-content">
+            <h2>Suasana Sampoerna University Futurisme Open Day 2023</h2>
+            <p>Information about the seminar and guest speakers.</p>
+            <p class="tags">#Pengumuman #Event</p>
+          </div>
+        </div>
+
+        <!-- Repeat article block for more content -->
+
+        <div class="image-grid">
+          <div class="image-item">
+            <img src="img/b5.png" alt="Description 1" />
+            <div class="overlay">
+              <div class="text">
+                Mahasiswa Ini Bikin Buku Antologi Diganjar Rekor Muri
+              </div>
+            </div>
+          </div>
+          <div class="image-item">
+            <img src="img/b6.png" alt="Description 2" />
+            <div class="overlay">
+              <div class="text">
+                Ratusan Wisudawan Universitas PTIQ yang Semakin Mendunia
+              </div>
+            </div>
+          </div>
+          <div class="image-item">
+            <img src="img/berita.jpg" alt="Description 3" />
+            <div class="overlay">
+              <div class="text">
+                Suasana Sampoerna University Futurisme Open Day 2023
+              </div>
+            </div>
+          </div>
+          <div class="image-item">
+            <img src="img/berita.jpg" alt="Description 4" />
+            <div class="overlay">
+              <div class="text">
+                Raih Gelar dari Kampus AS-Kanada, Begini Caranya
+              </div>
+            </div>
+          </div>
+          <div class="image-item">
+            <img src="img/berita.jpg" alt="Description 5" />
+            <div class="overlay">
+              <div class="text">
+                Pengukuhan Universitas MH Thamrin sebagai Kampus Jawara
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Content Section -->
+        <div class="side-content">
+          <h3>Tags Terkait</h3>
+          <div class="tags-list">
+            <a href="#">#pengumuman</a>
+            <a href="#">#lowongankerja</a>
+            <a href="#">#event</a>
+            <a href="#">#kuliahumum</a>
+            <a href="#">#seminar</a>
+            <!-- Add more tags as needed -->
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="container">
+          <div class="flex justify-between">
+            <div class="center">
+              <h1>POLNEP</h1>
+              <!-- <span class="p-2"></span> -->
+              <img src="img/polnep.png" alt="" width="80" />
+            </div>
+            <div class="center">
+              <p>Connect With Us</p>
+              <br />
+              <br />
+              <div class="flex" style="gap: 2px">
+                <a href="#">
+                  <img src="img/icons/fb.png" width="40" alt="" />
+                </a>
+                <a href="#">
+                  <img src="img/icons/ig.png" width="40" alt="" />
+                </a>
+                <a href="#">
+                  <img src="img/icons/x.png" width="40" alt="" />
+                </a>
+                <a href="#">
+                  <img src="img/icons/linkedin.png" width="40" alt="" />
+                </a>
+                <a href="#">
+                  <img src="img/icons/yt.png" width="40" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
