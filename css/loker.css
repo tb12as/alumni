@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+  }
+  
+  .container {
+    margin: auto 6%;
+  }
+  
+  .content {
+    margin-top: 100px;
+  }
+  
+  .title-header {
+    background-image: url(../img/background.png);
+    background-attachment: fixed;
+    background-position-y: 80px;
+    background-position-x: 50%;
+    background-size: cover;
+    height: 200px;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 2em;
+    padding: 30px;
+  }
+  
+  .mt-content {
+    margin-top: 30px;
+  }
+  
+  /* Existing styles... */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .lowja-job-search {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #searchInput {
+    width: 50%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .lowja-category-buttons {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .lowja-btn {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .lowja-btn.active,
+  .lowja-btn:hover {
+    background-color: #555;
+  }
+  
+  .lowja-job-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .lowja-job-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .lowja-job-card:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .lowja-job-card h3 {
+    margin: 0;
+  }
+  
+  .lowja-job-card p {
+    margin: 5px 0;
+    color: #777;
+  }
+  
+  .job-type {
+    background-color: #eaeaea;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: inline-block;
+  }
+  
+  .urgent {
+    background-color: #ff7777;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .apply-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .apply-btn:hover {
+    background-color: #555;
+  }
+  
+  .lowja-show-more-btn,
+  .lowja-scroll-up-btn {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    width: 200px;
+    transition: background-color 0.3s;
+  }
+  
+  .lowja-show-more-btn:hover,
+  .lowja-scroll-up-btn:hover {
+    background-color: #555;
+  }
+  
+  .lowja-scroll-up-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+  }
+  
+  .lowja-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+  }
+  
+  .lowja-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+  }
+  
+  .lowja-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .lowja-close:hover,
+  .lowja-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .lowja-requirements {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lowja-requirements li {
+    margin: 5px 0;
+    padding-left: 15px;
+    text-indent: -15px;
+  }
+  
+  .hidden-job {
+    display: none;
+  }
+  
+  .lowja-job-card .company-logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 100px;
+  }
+  
+  .lowja-job-card .location {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .lowja-job-card .icons {
+    margin-top: 10px;
+  }
+  
+  .lowja-job-card .icons i {
+    margin: 5px;
+    color: #777;
+  }
+  
+  .job-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  

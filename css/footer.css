@@ -10,3 +10,7 @@
   font-weight: lighter;
   margin-bottom: 12px;
 }
+
+.footer a {
+  text-decoration: none;
+}

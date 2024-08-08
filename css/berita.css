@@ -1,0 +1,107 @@
+.article {
+  display: flex;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.article .text {
+  padding: 15px;
+}
+
+.article .text h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.article .text p {
+  margin: 10px 0 0;
+  color: #555;
+}
+
+.article .text .tags {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.side-content {
+  margin-top: 30px;
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.side-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.tags-list a {
+  display: block;
+  margin: 5px 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.pagination a {
+  margin: 0 5px;
+  padding: 10px 15px;
+  color: #007bff;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.article {
+  display: flex;
+  align-items: center; /* Aligns items at the top */
+  margin: 20px 0;
+  justify-content: flex-start;
+}
+
+.article img {
+  max-width: 200px; /* Set a max width for the image */
+  margin-right: 20px; /* Space between the image and text */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column; /* Stacks the text content vertically */
+  justify-content: space-between;
+}
+
+.article-content h2 {
+  margin: 0 0 10px 0; /* Space below the title */
+}
+
+.article-content p {
+  margin: 5px 0; /* Space between paragraphs */
+}
+
+.tags {
+  font-style: italic;
+  color: #888; /* Grey color for tags */
+}

@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6f3f9;
+}
+
+/* About Us Section */
+.about-us {
+  padding: 10px 20px;
+  background-color: #f0f8ff;
+  position: center;
+  max-width: 1500px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.about-us h2 {
+  font-size: 45px;
+  color: #003c6d;
+  margin: 20px;
+  margin-top: 110px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.learn-more-button {
+  display: inline-block;
+  background-color: #0077c8;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.learn-more-button:hover {
+  background-color: #005fa3;
+}
+
+.image-background {
+  background-image: url('/img/bg.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 300px;
+  /* margin-bottom: 20px; */
+  /* border-radius: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content h3 {
+  font-size: 20px;
+  margin-top: 30px;
+  color: #003c6d;
+  position: relative;
+  padding-left: 30px;
+  font-weight: bold;
+}
+
+.content h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+}
+
+.content p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+/* about-style.css */
+
+.accreditation {
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.accreditation .container {
+  display: inline-block;
+  text-align: left;
+}
+
+.accreditation .pdf-link {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  text-decoration: none;
+  color: #e53935;
+  margin-bottom: 10px;
+}
+
+.accreditation .pdf-link i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.accreditation .download-button {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.accreditation p {
+  margin: 5px 0;
+}
+
+.accreditation img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
