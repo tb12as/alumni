@@ -45,6 +45,14 @@ body {
   justify-content: space-between;
 }
 
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
 .devider {
   border: 1px solid rgb(219, 219, 219);
   margin: 20px 0;
@@ -57,6 +65,10 @@ body {
 
 .center {
   text-align: center;
+}
+
+.p-2 {
+  padding: 1.3rem;
 }
 
 /* Extra small devices (phones, less than 576px) */

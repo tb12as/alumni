@@ -1,0 +1,166 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  background-image: url('/img/home/nopal.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #1a237e;
+  background-attachment: fixed;
+  /* backdrop-filter: blur(5px); */
+}
+
+header {
+  background-color: white;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000080;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000080;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #000080;
+  color: white;
+}
+
+.about-us {
+  font-size: 0.8em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 60px);
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  font-size: 4em;
+  color: #000080;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  position: absolute; /* Menambahkan ini */
+  top: 20px; /* Menambahkan ini */
+  left: 20px; /* Menambahkan ini */
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  position: absolute; /* Menambahkan ini */
+  top: 50%; /* Menambahkan ini */
+  left: 50%; /* Menambahkan ini */
+  transform: translate(-50%, -50%); /* Menambahkan ini */
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  background-color: #003366;
+  padding: 10px;
+  margin: -20px -20px 20px -20px;
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding-right: 30px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004080;
+}
+
