@@ -2,10 +2,11 @@
   margin-top: 20px;
   background-color: #d9d9d9;
   padding: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .footer h1 {
   color: #007cc2;
   font-weight: lighter;
+  margin-bottom: 12px;
 }
