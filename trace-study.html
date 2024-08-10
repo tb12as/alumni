@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trace Study</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/study-trace.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="items">
+          <div class="img">
+            <a href="index.html">
+              <img src="img/polnep.png" alt="" />
+              <img src="img/elektro.png" alt="" />
+            </a>
+          </div>
+          <div class="links mobile-hidden">
+            <a href="profile.html" class="nav-link">Profil</a>
+            <a href="event.html" class="nav-link">Acara</a>
+            <a href="berita.html" class="nav-link">Berita</a>
+            <a href="lowongan_kerja.html" class="nav-link">Lowongan Kerja</a>
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+          </div>
+        </div>
+
+        <div class="left">
+          <button id="toggleLinks">&#9776;</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="title-header">
+        <br />
+        <h1>Tracer Study</h1>
+      </div>
+
+      <div class="container-question mt-content">
+        <h2>Selamat datang Syafiq Afifuddin!</h2>
+        <br />
+        <p>
+          Harap isi pertanyaan tracer study dibawah ini sesuai pengalaman Anda
+          setelah lulus.
+        </p>
+      </div>
+
+      <div class="container-question mt-content">
+        <form action="trace-study-finished.html">
+          <div class="card">
+            <p><strong>Informasi Pribadi</strong></p>
+            <br />
+            <div class="my-2">
+              <label for="nama-lengkap" class="question">Nama Lengkap</label>
+              <br />
+              <input
+                id="nama-lengkap"
+                type="text"
+                class="form-control"
+                placeholder="Nama Lengkap" />
+            </div>
+
+            <div class="my-2">
+              <label for="tahun-lulus" class="question">Tahun Lulus</label>
+              <br />
+              <select
+                name=""
+                id="tahun-lulus"
+                class="form-control"
+                placeholder="Tahun Lulus">
+                <option value="" selected>----</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+              </select>
+            </div>
+
+            <div class="my-2">
+              <label for="email-input" class="question">Email</label>
+              <br />
+              <input
+                id="email-input"
+                type="email"
+                class="form-control"
+                placeholder="Email" />
+            </div>
+          </div>
+
+          <div class="card">
+            <p><strong>Pendidikan Lanjutan</strong></p>
+            <br />
+
+            <div class="my-2">
+              <p class="question">
+                Apakah Anda melanjutkan pendidikan setelah lulus?
+              </p>
+              <br />
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q1"
+                id="yesq1"
+                value="ya" />
+              <label for="yesq1" class="question">Ya</label>
+
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q1"
+                id="noq1"
+                value="tidak" />
+              <label for="noq1" class="question">Tidak</label>
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q2">
+                Jika ya, di mana dan di program studi apa Anda melanjutkan
+                pendidikan?
+              </label>
+              <br />
+              <input
+                id="q2"
+                type="text"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+          </div>
+          <div class="card">
+            <p><strong>Status Pekerjaan</strong></p>
+            <br />
+
+            <div class="my-2">
+              <p class="question">Apakah Anda saat ini bekerja?</p>
+              <br />
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q3"
+                id="yesg3"
+                value="ya" />
+              <label for="yesg3" class="question">Ya</label>
+
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q3"
+                id="noq3"
+                value="tidak" />
+              <label for="noq3" class="question">Tidak</label>
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q4">
+                Jika tidak bekerja, apa yang sedang Anda lakukan saat ini?
+                (Melanjutkan pendidikan, Wirausaha, Lainnya)
+              </label>
+              <br />
+              <input
+                id="q4"
+                type="text"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q5">
+                Jika bekerja, nama perusahaan/organisasi
+              </label>
+              <br />
+              <input
+                id="q5"
+                type="text"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q6"> Posisi/jabatan </label>
+              <br />
+              <input
+                id="q6"
+                type="text"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q7"> Lokasi perusahaan </label>
+              <br />
+              <textarea
+                id="q7"
+                type="text"
+                class="form-control"
+                placeholder="Jawaban anda"
+                rows="5"></textarea>
+            </div>
+
+            <div class="my-2">
+              <label for="q8" class="question">Jenis kontrak kerja</label>
+              <br />
+              <select
+                name=""
+                id="q8"
+                class="form-control"
+                placeholder="Tahun Lulus">
+                <option value="" selected>----</option>
+                <option value="Tetap">Tetap</option>
+                <option value="Kontrak">Kontrak</option>
+                <option value="Paruh Waktu">Paruh Waktu</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="my-2">
+              <p class="question">
+                Apakah pekerjaan Anda saat ini sesuai dengan latar belakang
+                pendidikan Anda?
+              </p>
+              <br />
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q9"
+                id="yesq9"
+                value="ya" />
+              <label for="yesq9" class="question">Ya</label>
+
+              <input
+                type="radio"
+                class="form-control radio"
+                name="q9"
+                id="noq9"
+                value="tidak" />
+              <label for="noq9" class="question">Tidak</label>
+            </div>
+          </div>
+
+          <div class="card">
+            <p><strong>Pengalaman Kerja</strong></p>
+            <br />
+            <div class="my-2">
+              <label class="question" for="q10">
+                Berapa lama waktu yang Anda butuhkan untuk mendapatkan pekerjaan
+                pertama setelah lulus?
+              </label>
+              <br />
+              <input
+                id="q10"
+                type="number"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+
+            <div class="my-2">
+              <label for="q11" class="question">
+                Bagaimana Anda mendapatkan pekerjaan pertama Anda?
+              </label>
+              <br />
+              <select name="" id="q11" class="form-control">
+                <option value="" selected>----</option>
+                <option value="Lowongan kerja">Lowongan kerja</option>
+                <option value="Jaringan / Koneksi">Jaringan / Koneksi</option>
+                <option value="Magang">Magang</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="my-2">
+              <label class="question" for="q12">
+                Apakah Anda pernah mengalami perpindahan pekerjaan? Jika ya,
+                berapa kali?
+              </label>
+              <br />
+              <input
+                id="q12"
+                type="number"
+                class="form-control"
+                placeholder="Jawaban anda" />
+            </div>
+
+            <div class="my-2">
+              <label for="q13" class="question">
+                Apa alasan utama Anda berpindah pekerjaan?
+              </label>
+              <br />
+              <select name="" id="q13" class="form-control">
+                <option value="" selected>----</option>
+                <option value="Gaji">Gaji</option>
+                <option value="Jenjang Karir">Jenjang Karir</option>
+                <option value="Lokasi">Lokasi</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card">
+            <p class="question">
+              Pastikan informasi yang Anda isikan sudah benar sebelum mengirim.
+            </p>
+            <br />
+            <button type="submit" class="btn-submit">Kirim</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="flex justify-between">
+          <div class="center">
+            <h1>POLNEP</h1>
+            <!-- <span class="p-2"></span> -->
+            <img src="img/polnep.png" alt="" width="80" />
+          </div>
+          <div class="center">
+            <p>Connect With Us</p>
+            <br />
+            <br />
+            <div class="flex" style="gap: 2px">
+              <a href="#">
+                <img src="img/icons/fb.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/ig.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/x.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/linkedin.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/yt.png" width="40" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/navbar.js"></script>
+  </body>
+</html>
