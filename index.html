@@ -3,57 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alumni Teknik Informatika</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
+    <title>Alumni Teknik Elektro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/event.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <style>
+      body {
+        background-color: #003366;
+      }
+
+      .img-header {
+        background-image: url('/img/home/nopal.jpg');
+        backdrop-filter: blur(5px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        height: 100vh;
+        position: relative;
+      }
+
+      .img-header::after {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.37);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        backdrop-filter: blur(3px);
+      }
+
+      .force-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .force-center h1 {
+        font-size: 40px;
+      }
+
+      .force-center p {
+        font-size: 20px;
+        color: whitesmoke;
+      }
+
+      .btn {
+        text-decoration: none;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 30px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+        background-color: #2d369c;
+      }
+
+      .btn:hover {
+        /* background-color: #0056b3; */
+        background-color: #1a237e;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo-container">
-          <img src="img/home/polnep.jpg" alt="Logo 1" class="logo" />
-          <img
-            src="img/home/elektro-removebg-preview.png"
-            alt="Logo 2"
-            class="logo" />
+    <nav class="navbar">
+      <div class="container">
+        <div class="items">
+          <div class="img">
+            <a href="">
+              <img src="img/polnep.png" alt="" />
+              <img src="img/elektro.png" alt="" />
+            </a>
+          </div>
+          <div class="links mobile-hidden">
+            <a href="event.html" class="nav-link">Acara</a>
+            <a href="berita.html" class="nav-link">Berita</a>
+            <a href="lowongan_kerja.html" class="nav-link">Lowongan Kerja</a>
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+          </div>
         </div>
-        <ul>
-          <!-- <li><a href="#">Home</a></li> -->
-          <li><a href="profile.html">Profil</a></li>
-          <li><a href="event.html">Acara</a></li>
-          <li><a href="berita.html">Berita</a></li>
-          <li><a href="lowongan_kerja.html">Lowongan</a></li>
-          <li><a href="about.html">Tentang Kami</a></li>
-        </ul>
-        <div class="about-us"></div>
-      </nav>
-    </header>
-    <main>
-      <h1>ALUMNI<br />Teknik Informatika</h1>
-      <div class="login-container">
-        <h2>USER LOGIN</h2>
-        <div class="user-icon"></div>
-        <form>
-          <div class="input-group">
-            <input type="text" placeholder="Username" />
-            <span class="input-icon username-icon"></span>
-          </div>
-          <div class="input-group">
-            <input type="password" placeholder="Password" />
-            <span class="input-icon password-icon"></span>
-          </div>
-          <div class="remember-forgot">
-            <label><input type="checkbox" /> Remember me</label>
-            <a href="#">Forgot Password?</a>
-          </div>
-          <button type="submit">LOG IN</button>
-        </form>
+
+        <div class="left">
+          <button id="toggleLinks">&#9776;</button>
+        </div>
       </div>
-    </main>
+    </nav>
+
+    <div class="content">
+      <div class="img-header">
+        <div class="force-center">
+          <h1>Selamat Datang, Alumni!</h1>
+          <br />
+          <p>
+            Kami mengundang Anda untuk berpartisipasi dalam tracer study alumni.
+            Kontribusi Anda sangat penting dalam membantu kami meningkatkan
+            kualitas pendidikan dan pengembangan program studi.
+          </p>
+          <br />
+          <br />
+          <a href="trace-study.html" class="btn">Isi Tracer Study</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container content">
+      <section id="profile" class="profiles">
+        <div class="container">
+          <h1>DAFTAR ALUMNI</h1>
+          <form action="" id="searchForm">
+            <div class="search-bar">
+              <input
+                id="searchQuery"
+                type="text"
+                placeholder="Masukkan Nama / NIM / Tahun Lulus" />
+              <button type="submit">🔍</button>
+            </div>
+          </form>
+          <div id="profile-grid" class="profile-grid"></div>
+          <div class="pagination">
+            <button id="prev" aria-label="Previous Page">&lt;</button>
+            <button class="page-btn" data-page="1">1</button>
+            <button class="page-btn" data-page="2">2</button>
+            <button class="page-btn" data-page="3">3</button>
+            <button class="page-btn" data-page="4">4</button>
+            <button class="page-btn" data-page="5">5</button>
+            <button class="page-btn" data-page="6">6</button>
+            <button class="page-btn" data-page="7">7</button>
+            <button class="page-btn" data-page="8">8</button>
+            <button id="next" aria-label="Next Page">&gt;</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="flex justify-between">
+          <div class="center">
+            <h1>POLNEP</h1>
+            <img src="img/polnep.png" alt="" width="80" />
+          </div>
+          <div class="center">
+            <p>Connect With Us</p>
+            <br />
+            <br />
+            <div class="flex" style="gap: 2px">
+              <a href="#">
+                <img src="img/icons/fb.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/ig.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/x.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/linkedin.png" width="40" alt="" />
+              </a>
+              <a href="#">
+                <img src="img/icons/yt.png" width="40" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/home.js"></script>
   </body>
 </html>
