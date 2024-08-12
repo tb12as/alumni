@@ -26,7 +26,9 @@ function loadData() {
             el.name = edit.name;
             el.alamat = edit.alamat;
             el.ttl = edit.ttl;
-            el.image = edit.image;
+            if (edit.image) {
+              el.image = edit.image;
+            }
           }
         });
         if (searchVal && searchVal !== '') {
@@ -68,7 +70,7 @@ function displayProfiles(page) {
     const card = document.createElement('div');
     let img = profile.image;
     let source = '';
-    if (img.includes('data:image')) {
+    if (img && img.includes('data:image')) {
       source = img;
     } else {
       if (img && !img.includes('.')) {
@@ -195,8 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
       nim: nim,
       alamat: alamat,
       ttl: ttl,
-      image: eee.image || '',
     };
+    if (eee) {
+      edit.image = eee.image;
+    }
     if (file && file.type.startsWith('image/')) {
       const reader = new FileReader();
 
