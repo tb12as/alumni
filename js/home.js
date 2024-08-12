@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nim: nim,
       alamat: alamat,
       ttl: ttl,
-      image: eee.image,
+      image: eee.image || '',
     };
     if (file && file.type.startsWith('image/')) {
       const reader = new FileReader();
