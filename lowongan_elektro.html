@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lowongan Kerja di Industri Elektro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/forum.css">
+  <style>
+    .job-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .job-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .job-post {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .job-post:last-child {
+      border-bottom: none;
+    }
+
+    .job-post .company {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .job-post .date {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    .job-post p {
+      margin: 10px 0;
+    }
+
+    .new-job {
+      margin-top: 30px;
+    }
+
+    .new-job h2 {
+      margin-bottom: 15px;
+    }
+
+    .new-job form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .new-job input, .new-job textarea {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .new-job button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .new-job button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="items">
+        <div class="img">
+          <a href="">
+            <img src="img/polnep.png" alt="" />
+            <img src="img/elektro.png" alt="" />
+          </a>
+        </div>
+        <div class="links mobile-hidden">
+          <a href="event.html" class="nav-link">Acara</a>
+          <a href="berita.html" class="nav-link">Berita</a>
+          <a href="lowongan_kerja.html" class="nav-link">Lowongan Kerja</a>
+          <a href="forum.html" class="nav-link">Forum</a>
+          <a href="about.html" class="nav-link">Tentang Kami</a>
+        </div>
+      </div>
+
+      <div class="left">
+        <button id="toggleLinks">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="job-container">
+    <h1>Lowongan Kerja di Industri Elektro</h1>
+
+    <div id="job-list">
+      <div class="job-post">
+        <p class="company">PT. Elektro Jaya</p>
+        <p class="date">Diposting pada: 10 Agustus 2024</p>
+        <p>Posisi: Electrical Engineer. Kualifikasi: Lulusan S1 Teknik Elektro, berpengalaman minimal 2 tahun di bidang terkait, menguasai AutoCAD, dan memiliki sertifikasi kelistrikan.</p>
+      </div>
+
+      <div class="job-post">
+        <p class="company">CV. Sinar Terang</p>
+        <p class="date">Diposting pada: 11 Agustus 2024</p>
+        <p>Posisi: Maintenance Engineer. Kualifikasi: Lulusan D3/S1 Teknik Elektro, berpengalaman di bidang maintenance minimal 1 tahun, mampu bekerja dalam tim, dan bersedia bekerja shift.</p>
+      </div>
+
+      <div class="job-post">
+        <p class="company">PT. Teknologi Terdepan</p>
+        <p class="date">Diposting pada: 12 Agustus 2024</p>
+        <p>Posisi: Project Manager. Kualifikasi: Lulusan S1 Teknik Elektro, berpengalaman sebagai Project Manager minimal 5 tahun, memiliki kemampuan leadership yang baik, dan mampu mengelola proyek dengan anggaran besar.</p>
+      </div>
+    </div>
+
+    <div class="new-job">
+      <h2>Tambah Lowongan Baru</h2>
+      <form id="jobForm">
+        <input type="text" id="company" placeholder="Nama Perusahaan" required>
+        <textarea id="job" placeholder="Deskripsi Lowongan Kerja" rows="5" required></textarea>
+        <button type="submit">Kirim Lowongan</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('jobForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah halaman di-refresh
+
+      // Mengambil nilai dari input
+      const company = document.getElementById('company').value;
+      const job = document.getElementById('job').value;
+
+      // Membuat elemen baru untuk lowongan kerja
+      const newJobPost = document.createElement('div');
+      newJobPost.classList.add('job-post');
+      const date = new Date().toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+
+      newJobPost.innerHTML = `
+        <p class="company">${company}</p>
+        <p class="date">Diposting pada: ${date}</p>
+        <p>${job}</p>
+      `;
+
+      // Menambahkan lowongan baru ke daftar
+      document.getElementById('job-list').appendChild(newJobPost);
+
+      // Mengosongkan input form
+      document.getElementById('company').value = '';
+      document.getElementById('job').value = '';
+    });
+  </script>
+
+  <script src="js/navbar.js"></script>
+</body>
+</html>

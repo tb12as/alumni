@@ -20,11 +20,13 @@
             </a>
           </div>
           <div class="links mobile-hidden">
-            <a href="profile.html" class="nav-link">Profil</a>
-            <a href="event.html" class="nav-link">Acara</a>
             <a href="berita.html" class="nav-link">Berita</a>
-            <a href="lowongan_kerja.html" class="nav-link">Lowongan Kerja</a>
+            <a href="forum.html" class="nav-link">Forum</a>
             <a href="about.html" class="nav-link">Tentang Kami</a>
+            <a href="login.html" id="login-btn" class="nav-link">Login</a>
+            <a href="#" id="logout-btn" class="nav-link" style="display: none"
+              >Logout</a
+            >
           </div>
         </div>
 
@@ -41,7 +43,7 @@
       </div>
 
       <div class="container-question mt-content">
-        <h2>Selamat datang Syafiq Afifuddin!</h2>
+        <h2>Selamat datang, <span id="userName">Syafiq Afifuddin</span>!</h2>
         <br />
         <p>
           Harap isi pertanyaan tracer study dibawah ini sesuai pengalaman Anda
@@ -58,6 +60,7 @@
               <label for="nama-lengkap" class="question">Nama Lengkap</label>
               <br />
               <input
+                required
                 id="nama-lengkap"
                 type="text"
                 class="form-control"
@@ -68,6 +71,7 @@
               <label for="tahun-lulus" class="question">Tahun Lulus</label>
               <br />
               <select
+                required
                 name=""
                 id="tahun-lulus"
                 class="form-control"
@@ -90,6 +94,7 @@
               <label for="email-input" class="question">Email</label>
               <br />
               <input
+                required
                 id="email-input"
                 type="email"
                 class="form-control"
@@ -107,6 +112,7 @@
               </p>
               <br />
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q1"
@@ -115,6 +121,7 @@
               <label for="yesq1" class="question">Ya</label>
 
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q1"
@@ -130,6 +137,7 @@
               </label>
               <br />
               <input
+                required
                 id="q2"
                 type="text"
                 class="form-control"
@@ -144,6 +152,7 @@
               <p class="question">Apakah Anda saat ini bekerja?</p>
               <br />
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q3"
@@ -152,6 +161,7 @@
               <label for="yesg3" class="question">Ya</label>
 
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q3"
@@ -167,6 +177,7 @@
               </label>
               <br />
               <input
+                required
                 id="q4"
                 type="text"
                 class="form-control"
@@ -179,6 +190,7 @@
               </label>
               <br />
               <input
+                required
                 id="q5"
                 type="text"
                 class="form-control"
@@ -189,6 +201,7 @@
               <label class="question" for="q6"> Posisi/jabatan </label>
               <br />
               <input
+                required
                 id="q6"
                 type="text"
                 class="form-control"
@@ -210,6 +223,7 @@
               <label for="q8" class="question">Jenis kontrak kerja</label>
               <br />
               <select
+                required
                 name=""
                 id="q8"
                 class="form-control"
@@ -229,6 +243,7 @@
               </p>
               <br />
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q9"
@@ -237,6 +252,7 @@
               <label for="yesq9" class="question">Ya</label>
 
               <input
+                required
                 type="radio"
                 class="form-control radio"
                 name="q9"
@@ -256,6 +272,7 @@
               </label>
               <br />
               <input
+                required
                 id="q10"
                 type="number"
                 class="form-control"
@@ -268,6 +285,7 @@
               </label>
               <br />
               <select name="" id="q11" class="form-control">
+                required
                 <option value="" selected>----</option>
                 <option value="Lowongan kerja">Lowongan kerja</option>
                 <option value="Jaringan / Koneksi">Jaringan / Koneksi</option>
@@ -283,6 +301,7 @@
               </label>
               <br />
               <input
+                required
                 id="q12"
                 type="number"
                 class="form-control"
@@ -295,6 +314,7 @@
               </label>
               <br />
               <select name="" id="q13" class="form-control">
+                required
                 <option value="" selected>----</option>
                 <option value="Gaji">Gaji</option>
                 <option value="Jenjang Karir">Jenjang Karir</option>
@@ -349,5 +369,42 @@
     </div>
 
     <script src="js/navbar.js"></script>
+    <script>
+      function loadData() {
+        fetch('/database/alumni-2020.json', {
+          method: 'GET',
+        })
+          .then((response) => {
+            response.json().then((jsonResponse) => {
+              // console.log(jsonResponse);
+              const profiles = jsonResponse;
+              // console.log(profiles)
+              const loggedNim = localStorage.getItem('nim');
+              if (loggedNim && loggedNim !== '') {
+                const profile = profiles.find((el) => {
+                  return el.nim == loggedNim;
+                });
+
+                document.getElementById('userName').innerText =
+                  `${profile.name}`.toLocaleLowerCase();
+              }
+            });
+          })
+          .catch((err) => {
+            console.log(`Error: ${err}`);
+          });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (
+          !localStorage.getItem('nim') ||
+          localStorage.getItem('loggedIn') == 'false'
+        ) {
+          window.location = '/login.html';
+        }
+
+        loadData();
+      });
+    </script>
   </body>
 </html>

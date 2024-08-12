@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (username === storedUsername && password === storedPassword) {
       alert('Login successful!');
-      window.location.href = 'index.html'; // Redirect to the homepage
+      localStorage.setItem('loggedIn', 'true');
+
+      window.location.href = 'index.html'; // Redirect to the homepag
     } else {
       alert('Invalid credentials. Please try again.');
     }

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Alumni Teknik Informatika</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/forum.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <style>
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .forum-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .forum-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .topic-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .topic-item {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .topic-item:last-child {
+        border-bottom: none;
+      }
+
+      .topic-item a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      .topic-item a:hover {
+        text-decoration: underline;
+      }
+
+      .new-topic {
+        margin-top: 30px;
+      }
+
+      .new-topic h2 {
+        margin-bottom: 15px;
+      }
+
+      .new-topic form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .new-topic input,
+      .new-topic textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .new-topic button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .new-topic button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="items">
+          <div class="img">
+            <a href="index.html">
+              <img src="img/polnep.png" alt="" />
+              <img src="img/elektro.png" alt="" />
+            </a>
+          </div>
+          <div class="links mobile-hidden">
+            <a href="event.html" class="nav-link">Berita</a>
+            <a href="forum.html" class="nav-link active">Forum</a>
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+            <a href="login.html" id="login-btn" class="nav-link">Login</a>
+            <a href="#" id="logout-btn" class="nav-link" style="display: none"
+              >Logout</a
+            >
+          </div>
+        </div>
+
+        <div class="left">
+          <button id="toggleLinks">&#9776;</button>
+        </div>
+      </div>
+    </nav>
+
+    <div style="padding-bottom: 100px"></div>
+
+    <div class="mt-content forum-container">
+      <h1>Forum Diskusi Alumni</h1>
+
+      <ul class="topic-list" id="topicList">
+        <li class="topic-item">
+          <a href="diskusi_pengalaman_kerja.html"
+            >Diskusi Tentang Pengalaman Kerja</a
+          >
+          <p>Dibuat oleh: Alumni A</p>
+        </li>
+        <li class="topic-item">
+          <a href="tips_trik_karir.html"
+            >Tips dan Trik Meningkatkan Karir di Bidang Elektro</a
+          >
+          <p>Dibuat oleh: Alumni B</p>
+        </li>
+        <!-- <li class="topic-item">
+          <a href="lowongan_elektro.html">Lowongan Kerja di Industri Elektro</a>
+          <p>Dibuat oleh: Alumni C</p>
+        </li> -->
+      </ul>
+
+      <div class="new-topic">
+        <h2>Buat Topik Baru</h2>
+        <form id="topicForm">
+          <input type="text" id="title" placeholder="Judul Topik" required />
+          <textarea
+            id="content"
+            placeholder="Isi Topik"
+            rows="5"
+            required></textarea>
+          <button type="submit">Buat Topik</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById('topicForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault(); // Mencegah halaman di-refresh
+
+          // Mengambil nilai dari input
+          const title = document.getElementById('title').value;
+          const content = document.getElementById('content').value;
+
+          // Membuat elemen baru untuk topik
+          const newTopicItem = document.createElement('li');
+          newTopicItem.classList.add('topic-item');
+          newTopicItem.innerHTML = `
+        <a href="#">${title}</a>
+        <p>Dibuat oleh: User</p>
+        <p>${content}</p>
+      `;
+
+          // Menambahkan topik baru ke daftar
+          document.getElementById('topicList').appendChild(newTopicItem);
+
+          // Mengosongkan input form
+          document.getElementById('title').value = '';
+          document.getElementById('content').value = '';
+        });
+    </script>
+
+    <script src="js/navbar.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (
+          !localStorage.getItem('nim') ||
+          localStorage.getItem('loggedIn') == 'false'
+        ) {
+          window.location = '/login.html';
+        }
+      });
+    </script>
+  </body>
+</html>
