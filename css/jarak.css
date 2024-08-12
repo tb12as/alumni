@@ -1,0 +1,35 @@
+.event-item {
+    margin-bottom: 20px; /* Adds space between event items */
+  }
+  
+  .block {
+    margin-left: 10px; /* Adds space between the image and text block */
+  }
+  
+  .preview {
+    background-size: cover;
+    height: 150px; /* Example height */
+    width: 100%; /* Example width */
+    margin-bottom: 10px; /* Space between image and button */
+  }
+  
+  .lihat-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Space between text and button */
+  }
+  
+  .lihat-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Adding space between sections */
+  .row {
+    margin-top: 30px; /* Space between different rows */
+  }
+  

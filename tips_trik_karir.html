@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tips dan Trik Meningkatkan Karir di Bidang Elektro</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/forum.css" />
+    <style>
+      .discussion-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .discussion-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .post {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .post:last-child {
+        border-bottom: none;
+      }
+
+      .post .author {
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      .post .date {
+        font-size: 0.9em;
+        color: #888;
+      }
+
+      .post p {
+        margin: 10px 0;
+      }
+
+      .new-comment {
+        margin-top: 30px;
+      }
+
+      .new-comment h2 {
+        margin-bottom: 15px;
+      }
+
+      .new-comment form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .new-comment input,
+      .new-comment textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .new-comment button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .new-comment button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="items">
+          <div class="img">
+            <a href="index.html">
+              <img src="img/polnep.png" alt="" />
+              <img src="img/elektro.png" alt="" />
+            </a>
+          </div>
+          <div class="links mobile-hidden">
+            <a href="event.html" class="nav-link">Berita</a>
+            <a href="forum.html" class="nav-link active">Forum</a>
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+            <a href="login.html" id="login-btn" class="nav-link">Login</a>
+            <a href="#" id="logout-btn" class="nav-link" style="display: none"
+              >Logout</a
+            >
+          </div>
+        </div>
+
+        <div class="left">
+          <button id="toggleLinks">&#9776;</button>
+        </div>
+      </div>
+    </nav>
+    <div style="padding-bottom: 100px"></div>
+    <div class="discussion-container">
+      <h1>Tips dan Trik Meningkatkan Karir di Bidang Elektro</h1>
+
+      <div id="post-list">
+        <div class="post">
+          <p class="author">Alumni A</p>
+          <p class="date">Diposting pada: 10 Agustus 2024</p>
+          <p>
+            Mulailah dengan mendapatkan sertifikasi di bidang yang Anda minati.
+            Sertifikasi bisa membantu Anda mendapatkan pengakuan lebih di
+            industri.
+          </p>
+        </div>
+
+        <div class="post">
+          <p class="author">Alumni B</p>
+          <p class="date">Diposting pada: 11 Agustus 2024</p>
+          <p>
+            Jangan ragu untuk mengambil proyek yang menantang. Semakin banyak
+            pengalaman, semakin baik karir Anda di masa depan.
+          </p>
+        </div>
+
+        <div class="post">
+          <p class="author">Alumni C</p>
+          <p class="date">Diposting pada: 12 Agustus 2024</p>
+          <p>
+            Jangan lupa untuk terus belajar dan mengikuti perkembangan teknologi
+            terbaru. Dunia elektro berkembang sangat cepat, dan penting untuk
+            tetap update.
+          </p>
+        </div>
+      </div>
+
+      <div class="new-comment">
+        <h2>Tinggalkan Komentar</h2>
+        <form id="commentForm">
+          <input type="text" id="author" placeholder="Nama Anda" required />
+          <textarea
+            id="comment"
+            placeholder="Komentar Anda"
+            rows="5"
+            required></textarea>
+          <button type="submit">Kirim Komentar</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById('commentForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault(); // Mencegah halaman di-refresh
+
+          // Mengambil nilai dari input
+          const author = document.getElementById('author').value;
+          const comment = document.getElementById('comment').value;
+
+          // Membuat elemen baru untuk komentar
+          const newPost = document.createElement('div');
+          newPost.classList.add('post');
+          const date = new Date().toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          });
+
+          newPost.innerHTML = `
+        <p class="author">${author}</p>
+        <p class="date">Diposting pada: ${date}</p>
+        <p>${comment}</p>
+      `;
+
+          // Menambahkan komentar baru ke daftar
+          document.getElementById('post-list').appendChild(newPost);
+
+          // Mengosongkan input form
+          document.getElementById('author').value = '';
+          document.getElementById('comment').value = '';
+        });
+    </script>
+
+    <script src="js/navbar.js"></script>
+  </body>
+</html>

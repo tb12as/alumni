@@ -14,8 +14,21 @@ function loadData() {
   })
     .then((response) => {
       response.json().then((jsonResponse) => {
+        let edited = [];
+        if (localStorage.getItem('edited')) {
+          edited = JSON.parse(localStorage.getItem('edited') || []);
+        }
         // console.log(jsonResponse);
         profiles = jsonResponse;
+        profiles.map((el) => {
+          const edit = edited.find((eee) => eee.nim == el.nim);
+          if (edit) {
+            el.name = edit.name;
+            el.alamat = edit.alamat;
+            el.ttl = edit.ttl;
+            el.image = edit.image;
+          }
+        });
         if (searchVal && searchVal !== '') {
           profiles = profiles.filter((el) => {
             const c1 = el.name.toLocaleLowerCase().includes(searchVal);
@@ -28,8 +41,6 @@ function loadData() {
         displayProfiles(currentPage);
         updatePagination();
       });
-      // assuming your json object is wrapped in an array
-      response.json().then((i) => i.forEach((i) => console.log(i.name)));
     })
     .catch((err) => {
       console.log(`Error: ${err}`);
@@ -56,18 +67,33 @@ function displayProfiles(page) {
   pageProfiles.forEach((profile) => {
     const card = document.createElement('div');
     let img = profile.image;
-    if (!img.includes('.')) {
-      img += '.png';
+    let source = '';
+    if (img.includes('data:image')) {
+      source = img;
+    } else {
+      if (img && !img.includes('.')) {
+        img += '.png';
+      }
+      source = `img/alumni/${img}`;
     }
 
     let angkatan = profile.angkatan + 3;
     card.className = 'profile-card';
-    card.innerHTML = `
-            <img src="img/alumni/${img}" alt="${profile.name}">
+    let html = `
+            <img src="${source}" alt="${profile.name}">
             <p class="name">${profile.name}</p>
             <p class="nim">${profile.nim}</p>
             <p class="angkatan">Lulus tahun ${angkatan}</p>
         `;
+
+    if (
+      localStorage.getItem('loggedIn') == 'true' &&
+      localStorage.getItem('nim') == profile.nim
+    ) {
+      html +=
+        '<button class="edit-btn" data-id="' + profile.nim + '">Edit</button>';
+    }
+    card.innerHTML = html;
     profileGrid.appendChild(card);
   });
 }
@@ -102,6 +128,103 @@ pageButtons.forEach((btn) => {
     currentPage = parseInt(btn.dataset.page);
     displayProfiles(currentPage);
     updatePagination();
+  });
+});
+
+function convertImageToBase64(url, callback) {
+  const img = new Image();
+  img.crossOrigin = 'Anonymous';
+  img.onload = function () {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    const dataURL = canvas.toDataURL('image/png');
+    callback(dataURL);
+  };
+  img.src = url;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  profileGrid.addEventListener('click', function (event) {
+    if (event.target.classList.contains('edit-btn')) {
+      let edited = [];
+      if (localStorage.getItem('edited')) {
+        edited = JSON.parse(localStorage.getItem('edited') || []);
+      }
+
+      const profileId = event.target.dataset.id;
+      const profile = profiles.find((p) => p.nim == profileId); // Assuming NIM is used as profile ID
+
+      const edit = edited.find((eee) => eee.nim == profileId);
+
+      if (profile) {
+        document.getElementById('edit-name').value = profile.name;
+        document.getElementById('edit-nim').value = profile.nim;
+
+        if (edit) {
+          document.getElementById('edit-alamat').value = edit.alamat;
+          document.getElementById('edit-ttl').value = edit.ttl;
+        }
+
+        document.getElementById('edit-popup').style.display = 'flex';
+      }
+    }
+  });
+
+  document.getElementById('edit-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('edit-name').value;
+    const nim = document.getElementById('edit-nim').value;
+    const ttl = document.getElementById('edit-ttl').value;
+    const alamat = document.getElementById('edit-alamat').value;
+    const foto = document.getElementById('edit-foto');
+    const file = foto.files[0] || null;
+    // console.log();
+
+    let base64Image = '';
+    let edited = [];
+    if (localStorage.getItem('edited')) {
+      edited = JSON.parse(localStorage.getItem('edited') || []);
+    }
+
+    const eee = edited.find((eee) => eee.nim == nim);
+    const edit = {
+      name: name,
+      nim: nim,
+      alamat: alamat,
+      ttl: ttl,
+      image: eee.image,
+    };
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        base64Image = e.target.result; // Get the Base64 string
+        edit.image = base64Image;
+        const data = [edit];
+        localStorage.setItem('edited', JSON.stringify(data));
+      };
+
+      reader.readAsDataURL(file); // Convert the image to a Base64 string
+    } else {
+      console.log('Please select a valid image file.');
+      const data = [edit];
+      localStorage.setItem('edited', JSON.stringify(data));
+    }
+
+    loadData();
+  });
+
+  document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('edit-popup').style.display = 'none';
+  });
+
+  document.getElementById('edit-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    // Handle form submission logic here
+    document.getElementById('edit-popup').style.display = 'none';
   });
 });
 
